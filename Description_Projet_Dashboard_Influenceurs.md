@@ -1,0 +1,3 @@
+# Description du projet — Dashboard Influenceurs (GitHub-only)
+
+Ce sera un dashboard destiné aux influenceur qui souhaite avoir une vue d'ensemble sur leur stats tel que TikTok Instagram etc... celui ci sera intuitif et interactif avec calculs précis en temps réels, il y aura une partie dédié à "Comment optimiser et gagner plus en popularité" tout en se basant sur l'algorithme et ce qui fonctionne sur les réseau sociaux les tendances les actualités, ca peut être autant des produits pour du partenariat que des musiques ou autres service, mais pour ça il faudra payer un abonnement de 19€/mois pour une analyse poussé.
