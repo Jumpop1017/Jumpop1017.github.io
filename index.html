@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Influenceur Dashboard (GitHub-only)</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <!-- Librairies côté client (aucun build) -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script type="module" src="assets/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>📈 Influenceur Dashboard</h1>
+    <nav>
+      <a href="#import">Import</a>
+      <a href="#overview">Vue d'ensemble</a>
+      <a href="#optimizer">Optimisation <span class="badge">Pro</span></a>
+      <a href="#trends">Tendances <span class="badge">Pro</span></a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="paywall" class="card">
+      <h2>Débloquer les fonctions Pro (19€/mois via <span class="gh">GitHub Sponsors</span>)</h2>
+      <ol>
+        <li>Deviens sponsor du compte <b>Jumpop1017</b> sur <strong>GitHub Sponsors</strong> (palier 19€/mois).</li>
+        <li>Entre ton pseudo GitHub ci-dessous et clique « Vérifier ».</li>
+        <li>Si ton pseudo est dans <code>data/sponsors.json</code>, les sections Pro se débloquent.</li>
+      </ol>
+      <div class="paywall-row">
+        <input id="gh-username" placeholder="Ton pseudo GitHub" />
+        <button id="check-sponsor">Vérifier</button>
+        <span id="sponsor-status" class="muted"></span>
+      </div>
+      <p class="tiny muted">(MVP : vérification par pseudo depuis <code>sponsors.json</code> généré par Actions.)</p>
+    </section>
+
+    <section id="import" class="card">
+      <h2>Import de données (CSV / JSON)</h2>
+      <p>Exportez vos stats depuis TikTok / Instagram (CSV) et importez-les ici. Aucun serveur : vos fichiers restent dans votre navigateur.</p>
+
+      <div class="uploader">
+        <div>
+          <h3>TikTok</h3>
+          <input type="file" id="tiktok-file" accept=".csv,.json" />
+          <p class="tiny muted">Attend : date, vues, likes, commentaires, partages, followers...</p>
+        </div>
+        <div>
+          <h3>Instagram</h3>
+          <input type="file" id="ig-file" accept=".csv,.json" />
+          <p class="tiny muted">Attend : date, impressions, reach, likes, saves, comments, followers...</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="kpi">
+          <div class="kpi-label">Total vues</div>
+          <div id="kpi-views" class="kpi-value">—</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Taux d'engagement</div>
+          <div id="kpi-engagement" class="kpi-value">—</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Croissance followers</div>
+          <div id="kpi-growth" class="kpi-value">—</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-label">Posts/sem.</div>
+          <div id="kpi-postfreq" class="kpi-value">—</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="overview" class="card">
+      <h2>Vue d'ensemble</h2>
+      <canvas id="chart-views" height="120"></canvas>
+      <canvas id="chart-engagement" height="120"></canvas>
+      <canvas id="chart-growth" height="120"></canvas>
+    </section>
+
+    <section id="optimizer" class="card pro-locked">
+      <h2>Optimisation (Pro)</h2>
+      <div id="optimizer-content" class="muted">Débloquez Pro pour générer un plan d'optimisation personnalisé (meilleurs horaires, formats, hooks, hashtags, ratio montage, A/B testing, etc.).</div>
+    </section>
+
+    <section id="trends" class="card pro-locked">
+      <h2>Tendances & Actualités (Pro)</h2>
+      <p class="muted">Ces flux sont générés par <strong>GitHub Actions</strong> (aucun serveur) et mis à jour dans <code>/data</code>.</p>
+      <div id="trends-list" class="trends"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Fait avec ❤️ et uniquement GitHub Pages + Actions</span>
+    <a href="https://github.com/sponsors" target="_blank" rel="noreferrer">Devenir Sponsor</a>
+  </footer>
+</body>
+</html>
